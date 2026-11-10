@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="El Refugio: cabaña de troncos para 14 personas en Bosques de Monterreal, Sierra de Arteaga, Coahuila. 4 recámaras, chimenea, terraza con asador y jardín.">
+<meta property="og:title" content="El Refugio · Cabaña en Bosques de Monterreal">
+<meta property="og:description" content="Cabaña de troncos para 14 personas en la Sierra de Arteaga, Coahuila.">
+<meta property="og:image" content="img/fachada.jpg">
+<meta property="og:type" content="website">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>El Refugio · Cabaña en Bosques de Monterreal</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&family=Zilla+Slab:wght@500;600;700&display=swap">
+<style>
+/* Layout: slim sticky header; full-bleed facade hero with the name anchored bottom-left;
+   spaces grouped by use on a 12-column grid; three gable-topped portraits echo the cabin's roofline. */
+:root{
+  --bg:#edf0ea;
+  --surface:#f8f9f5;
+  --ink:#15221b;
+  --muted:#536258;
+  --honey:#8a5611;
+  --line:rgba(21,34,27,.16);
+  --btn-bg:#1e4332;
+  --btn-fg:#f2f5ee;
+  --band:#1e4332;
+  --on-band:#f2f5ee;
+  --on-band-muted:#c3d2c6;
+  --band-btn-bg:#f2f5ee;
+  --band-btn-fg:#15221b;
+  --on-photo:#ffffff;
+  --scrim:10,18,14;
+  --lb-bg:rgba(7,11,9,.96);
+  --lb-fg:#f2f5ee;
+  --display:"Zilla Slab",Rockwell,"Roboto Slab",Georgia,serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"DM Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1612; --surface:#151f1a; --ink:#e8ede6; --muted:#9bada1; --honey:#e0a657;
+    --line:rgba(232,237,230,.16); --btn-bg:#d5e3d6; --btn-fg:#10201a;
+    --band:#17291f; --on-band:#f2f5ee; --on-band-muted:#a9bcae;
+    --band-btn-bg:#f2f5ee; --band-btn-fg:#15221b;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1612; --surface:#151f1a; --ink:#e8ede6; --muted:#9bada1; --honey:#e0a657;
+  --line:rgba(232,237,230,.16); --btn-bg:#d5e3d6; --btn-fg:#10201a;
+  --band:#17291f; --on-band:#f2f5ee; --on-band-muted:#a9bcae;
+  --band-btn-bg:#f2f5ee; --band-btn-fg:#15221b;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+h1,h2,h3,p,ul,figure{margin:0}
+ul{padding:0;list-style:none}
+a{color:inherit}
+img{display:block}
+.wrap{max-width:1180px;margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}
+.eyebrow{color:var(--honey);margin-bottom:14px}
+h2{font:600 clamp(2rem,4.6vw,3.25rem)/1.02 var(--display);letter-spacing:-.015em;text-wrap:balance}
+h3{font:600 1.5rem/1.1 var(--display);letter-spacing:-.005em}
+.prose{display:grid;gap:16px;max-width:60ch;color:var(--muted)}
+.prose p{text-wrap:pretty}
+.block{padding-block:clamp(56px,8vw,104px)}
+section[id]{scroll-margin-top:calc(64px + env(safe-area-inset-top,0px))}
+:focus-visible{outline:3px solid var(--honey);outline-offset:3px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.5em;min-height:46px;padding:0 20px;border-radius:999px;border:1.5px solid transparent;
+  background:var(--btn-bg);color:var(--btn-fg);font:600 .95rem/1 var(--body);text-decoration:none;cursor:pointer;white-space:nowrap;transition:transform .2s,opacity .2s}
+.btn:hover{transform:translateY(-1px);opacity:.92}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn .arr{font-family:var(--mono);font-size:.9em}
+
+/* Header */
+.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:60px}
+.brand{font:700 1.4rem/1 var(--display);text-decoration:none;letter-spacing:-.01em;display:flex;align-items:baseline;gap:10px}
+.brand .mono{color:var(--muted);font-size:.66rem}
+.site nav{display:flex;align-items:center;gap:26px}
+.site nav a.link{font-size:.92rem;text-decoration:none;color:var(--muted)}
+.site nav a.link:hover{color:var(--ink)}
+.site .btn{min-height:38px;padding:0 16px;font-size:.88rem}
+@media (max-width:820px){.site nav a.link{display:none}}
+@media (max-width:420px){.brand .mono{display:none}}
+
+/* Hero */
+.hero{position:relative;color:var(--on-photo);isolation:isolate;overflow:hidden}
+.hero > img{width:100%;height:clamp(460px,54vw,700px);object-fit:cover;object-position:32% 42%}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(to top,rgba(var(--scrim),.86) 0%,rgba(var(--scrim),.48) 34%,rgba(var(--scrim),0) 66%)}
+.hero-text{position:absolute;inset:auto 0 0 0;z-index:2;padding-bottom:clamp(24px,4vw,52px)}
+.hero-text .mono{opacity:.9;margin-bottom:10px}
+h1{font:700 clamp(3.5rem,11.5vw,8.5rem)/.86 var(--display);letter-spacing:-.03em;margin-bottom:clamp(14px,2vw,22px)}
+.lede{font-size:clamp(1.05rem,1.6vw,1.3rem);line-height:1.4;max-width:34ch;margin-bottom:22px;text-wrap:balance}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.hero .btn{background:var(--on-photo);color:#15221b}
+.hero .btn.ghost{background:transparent;color:var(--on-photo);border-color:rgba(255,255,255,.6)}
+@media (max-width:640px){.hero > img{height:min(145vw,600px);object-position:30% 40%}}
+
+/* Facts */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.facts li{padding:clamp(18px,3vw,30px) 0;display:flex;align-items:baseline;gap:12px}
+.facts li + li{border-left:1px solid var(--line);padding-left:clamp(14px,3vw,32px)}
+.facts b{font:600 clamp(2.4rem,5vw,3.6rem)/1 var(--display);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.facts span{color:var(--muted)}
+@media (max-width:700px){
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .facts li{flex-direction:column;gap:4px}
+  .facts li:nth-child(3){border-left:0;padding-left:0}
+  .facts li:nth-child(n+3){border-top:1px solid var(--line)}
+}
+
+/* Intro */
+.intro{display:grid;grid-template-columns:5fr 7fr;gap:clamp(28px,5vw,72px);align-items:center}
+.intro h2{margin-bottom:22px}
+@media (max-width:820px){.intro{grid-template-columns:1fr}}
+
+/* Photos */
+.shot{display:flex;flex-direction:column;gap:10px;min-width:0}
+.ph{appearance:none;border:0;padding:0;margin:0;background:var(--surface);color:inherit;font:inherit;display:block;flex:none;width:100%;max-width:100%;
+  aspect-ratio:var(--ar,4/5);overflow:hidden;border-radius:3px;cursor:zoom-in;position:relative}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.035)}
+.shot figcaption{font-size:.92rem;line-height:1.4;color:var(--muted);max-width:44ch}
+.shot figcaption strong{display:block;color:var(--ink);font-weight:600;font-size:1rem}
+
+.group + .group{margin-top:clamp(48px,7vw,88px)}
+.group-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;padding-bottom:14px;margin-bottom:clamp(16px,2.4vw,26px);border-bottom:1px solid var(--line)}
+.group-head h3{white-space:nowrap}
+.group-head .mono{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(12px,2vw,24px) clamp(12px,2vw,24px)}
+.c3{grid-column:span 3}.c4{grid-column:span 4}.c5{grid-column:span 5}.c7{grid-column:span 7}.c8{grid-column:span 8}
+@media (min-width:760px){.shot.fill .ph{aspect-ratio:auto;flex:1 1 auto;min-height:0}}
+@media (max-width:759px){
+  .c3,.m6{grid-column:span 6}
+  .c5,.c7,.c8,.m12{grid-column:span 12}
+}
+.spaces-head{display:grid;gap:18px;margin-bottom:clamp(36px,5vw,60px)}
+
+/* Seasons */
+.band-soft{background:var(--surface);border-block:1px solid var(--line)}
+.seasons-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,56px);align-items:end;margin-bottom:clamp(30px,5vw,56px)}
+.seasons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,3vw,36px)}
+.season .ph{--ar:3/4;border-radius:0;background:transparent}
+.season .ph img{clip-path:polygon(50% 0,100% 15%,100% 100%,0 100%,0 15%)}
+.season .ph:hover img{transform:none}
+.season figcaption strong{font:600 1.4rem/1.1 var(--display);margin-bottom:4px}
+@media (max-width:759px){
+  .seasons-head{grid-template-columns:1fr}
+  .seasons{grid-template-columns:1fr;gap:22px}
+  .season{flex-direction:row;align-items:flex-end;gap:16px}
+  .season .ph{width:44%}
+  .season figcaption{flex:1;min-width:0;padding-bottom:6px}
+}
+
+/* Amenities */
+.amen{display:grid;grid-template-columns:4fr 8fr;gap:clamp(28px,5vw,72px)}
+.amen h2{margin-bottom:18px}
+.amen-list{columns:2;column-gap:clamp(20px,4vw,48px)}
+.amen-list li{break-inside:avoid;padding:13px 0 13px 24px;border-top:1px solid var(--line);position:relative;line-height:1.4}
+.amen-list li::before{content:"";position:absolute;left:0;top:1.25em;width:11px;height:9px;background:var(--honey);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.amen-list small{display:block;color:var(--muted);font-size:.88rem}
+.note{font-size:.92rem;color:var(--muted)}
+.note a{color:var(--ink);text-underline-offset:3px}
+@media (max-width:820px){.amen{grid-template-columns:1fr}}
+@media (max-width:560px){.amen-list{columns:1}}
+
+/* Location */
+.loc{display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,5vw,72px);align-items:start}
+.loc h2{margin-bottom:22px}
+.coords{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;padding:16px 0;border-block:1px solid var(--line)}
+.coords code{font:500 clamp(1rem,2.4vw,1.25rem)/1.2 var(--mono);letter-spacing:.02em;user-select:all;overflow-wrap:anywhere;min-width:0}
+.copy{appearance:none;background:transparent;border:1.5px solid var(--line);color:var(--ink);border-radius:999px;min-height:34px;padding:0 14px;font:500 .82rem/1 var(--body);cursor:pointer}
+.copy:hover{border-color:var(--ink)}
+.loc .cta{margin-top:24px}
+.arrive{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:clamp(20px,3vw,30px);display:grid;gap:18px}
+.arrive h3{font-size:1.3rem}
+.arrive dl{margin:0;display:grid;gap:16px}
+.arrive dt{font-weight:600}
+.arrive dd{margin:2px 0 0;color:var(--muted);font-size:.95rem}
+@media (max-width:820px){.loc{grid-template-columns:1fr}}
+
+/* Booking band */
+.book{background:var(--band);color:var(--on-band)}
+.book .wrap{display:grid;grid-template-columns:1fr auto;gap:28px 48px;align-items:end}
+.book h2{font-size:clamp(2.4rem,6vw,4.4rem);margin-bottom:14px}
+.book p{color:var(--on-band-muted);max-width:46ch}
+.book .eyebrow{color:var(--on-band-muted)}
+.book .btn{background:var(--band-btn-bg);color:var(--band-btn-fg)}
+.book .btn.ghost{background:transparent;color:var(--on-band);border-color:rgba(242,245,238,.45)}
+.contact{margin-top:26px;padding-top:18px;border-top:1px solid rgba(242,245,238,.22);display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;max-width:46ch}
+.contact .mono{color:var(--on-band-muted);flex-basis:100%}
+.tel{font:500 clamp(1.35rem,3.2vw,1.75rem)/1 var(--mono);letter-spacing:.02em;color:var(--on-band);text-decoration:none;user-select:all;white-space:nowrap}
+.tel:hover{text-decoration:underline;text-underline-offset:5px}
+.book .copy{color:var(--on-band);border-color:rgba(242,245,238,.45)}
+.book .copy:hover{border-color:var(--on-band)}
+.btn.sm{min-height:36px;padding:0 15px;font-size:.86rem}
+@media (max-width:820px){.book .wrap{grid-template-columns:1fr}}
+
+/* Privacy notice */
+.fine{flex-basis:100%;font-size:.8rem;line-height:1.5;margin-top:6px}
+.fine a{color:var(--on-band);text-underline-offset:3px;overflow-wrap:anywhere}
+.legal{padding-block:clamp(24px,4vw,40px) 4px}
+.legal details{border-bottom:1px solid var(--line)}
+.legal summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;cursor:pointer;list-style:none;padding:14px 0}
+.legal summary::-webkit-details-marker{display:none}
+.legal summary::after{content:"+";margin-left:auto;font:500 1.3rem/1 var(--mono);color:var(--muted)}
+.legal details[open] summary::after{content:"\2212"}
+.legal-title{font:600 1.3rem/1.1 var(--display)}
+.legal summary .mono{color:var(--muted)}
+.legal-body{max-width:70ch;padding:4px 0 32px;font-size:.95rem;color:var(--muted);display:grid;gap:12px}
+.legal-body h3{font:600 1rem/1.3 var(--body);letter-spacing:0;color:var(--ink);margin-top:12px}
+.legal-body ul{list-style:disc;padding-left:1.2em;display:grid;gap:4px}
+.legal-body a{color:var(--ink);text-underline-offset:3px;overflow-wrap:anywhere}
+.legal-body strong{color:var(--ink);font-weight:600}
+
+footer{padding-block:28px 36px;font-size:.9rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 28px}
+footer a{text-underline-offset:3px}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 20px}
+
+/* Lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:var(--lb-bg);color:var(--lb-fg);display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-rows:auto minmax(0,1fr) auto;gap:10px;
+  padding:calc(12px + env(safe-area-inset-top,0px)) calc(12px + env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) calc(12px + env(safe-area-inset-left,0px))}
+.lb-top{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.lb-top .mono{opacity:.8}
+.lb-btn{appearance:none;background:transparent;border:1.5px solid rgba(242,245,238,.35);color:var(--lb-fg);border-radius:999px;min-width:44px;min-height:44px;padding:0 16px;font:500 .9rem/1 var(--body);cursor:pointer}
+.lb-btn:hover{border-color:var(--lb-fg)}
+.lb-nav{align-self:center;padding:0;font-family:var(--mono);font-size:1.1rem}
+.lb-stage{grid-column:2;grid-row:2;position:relative;min-height:0;min-width:0}
+.lb-stage img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:contain}
+#lb-prev{grid-column:1;grid-row:2}
+#lb-next{grid-column:3;grid-row:2}
+.lb-cap{grid-column:1/-1;text-align:center;font-size:.95rem;min-height:1.5em}
+@media (max-width:640px){
+  .lb{grid-template-columns:1fr 1fr;grid-template-rows:auto minmax(0,1fr) auto auto}
+  .lb-stage{grid-column:1/-1}
+  .lb-cap{grid-row:3}
+  #lb-prev{grid-column:1;grid-row:4;justify-self:end}
+  #lb-next{grid-column:2;grid-row:4;justify-self:start}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .ph img,.btn{transition:none}
+  .ph:hover img,.btn:hover{transform:none}
+}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#inicio">El Refugio <span class="mono">Monterreal</span></a>
+    <nav aria-label="Secciones">
+      <a class="link" href="#cabana">La cabaña</a>
+      <a class="link" href="#espacios">Espacios</a>
+      <a class="link" href="#temporadas">Temporadas</a>
+      <a class="link" href="#ubicacion">Ubicación</a>
+      <a class="btn" href="https://www.airbnb.mx/rooms/1815620689149220325" target="_blank" rel="noopener">Reservar</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <img src="img/fachada.jpg" srcset="img/fachada-s.jpg 760w, img/fachada.jpg 1800w" sizes="100vw" alt="Fachada de El Refugio: cabaña de troncos con techo a dos aguas, terraza y jardín con pinos" fetchpriority="high">
+    <div class="hero-text">
+      <div class="wrap">
+        <p class="mono">Bosques de Monterreal · Sierra de Arteaga, Coahuila</p>
+        <h1>El Refugio</h1>
+        <p class="lede">Cabaña de troncos para 14 personas, rodeada de pinos y con la sierra de frente.</p>
+        <div class="cta">
+          <a class="btn" href="https://www.airbnb.mx/rooms/1815620689149220325" target="_blank" rel="noopener">Reservar en Airbnb <span class="arr" aria-hidden="true">↗</span></a>
+          <button class="btn ghost" type="button" id="ver-fotos" data-full="img/fachada.jpg" data-cap="La fachada, con la terraza y el jardín">Ver las 18 fotos</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <ul class="facts" aria-label="Capacidad">
+      <li><b>14</b><span>huéspedes</span></li>
+      <li><b>4</b><span>recámaras</span></li>
+      <li><b>13</b><span>camas</span></li>
+      <li><b>3</b><span>baños</span></li>
+    </ul>
+  </div>
+
+  <section class="block" id="cabana">
+    <div class="wrap intro">
+      <div>
+        <p class="mono eyebrow">La cabaña</p>
+        <h2>Troncos, piedra y pinos alrededor</h2>
+        <div class="prose">
+          <p>El Refugio está en Bosques de Monterreal, en plena Sierra de Arteaga. La rodean los pinos y el clima es fresco todo el año, así que funciona igual para una reunión familiar que para una escapada con amigos.</p>
+          <p>Adentro hay una sala de doble altura con chimenea de piedra, un comedor de mesa grande y cocina equipada. Afuera, una terraza techada con asador, jardín con hamaca y una casa del árbol para los niños.</p>
+        </div>
+      </div>
+      <figure class="shot">
+        <button class="ph" type="button" style="--ar:5/3" data-full="img/doble-altura.jpg" data-cap="La sala de doble altura, vista desde la planta alta">
+          <img src="img/doble-altura-s.jpg" srcset="img/doble-altura-s.jpg 760w, img/doble-altura.jpg 1720w" sizes="(min-width:820px) 56vw, 100vw" alt="Sala de doble altura con ventanales triangulares, candil de astas y chimenea de piedra">
+        </button>
+        <figcaption>La sala desde la planta alta: ventanales al jardín y un candil de astas al centro.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" id="espacios" style="padding-top:0">
+    <div class="wrap">
+      <div class="spaces-head">
+        <p class="mono eyebrow" style="margin:0">Espacios</p>
+        <h2>Lugar para que todos estén juntos</h2>
+      </div>
+
+      <div class="group">
+        <div class="group-head"><h3>Para convivir</h3><span class="mono">Sala · Comedor · Cocina · Terraza</span></div>
+        <div class="grid">
+          <figure class="shot c3">
+            <button class="ph" type="button" style="--ar:3/4" data-full="img/sala.jpg" data-cap="Sala con chimenea de piedra">
+              <img loading="lazy" src="img/sala-s.jpg" srcset="img/sala-s.jpg 571w, img/sala.jpg 1290w" sizes="(min-width:760px) 25vw, 50vw" alt="Sala con sillón amplio, televisión y chimenea de piedra">
+            </button>
+            <figcaption><strong>Sala con chimenea</strong>Sillón amplio, televisión y chimenea de piedra.</figcaption>
+          </figure>
+          <figure class="shot c3">
+            <button class="ph" type="button" style="--ar:3/4" data-full="img/comedor.jpg" data-cap="Comedor de mesa grande">
+              <img loading="lazy" src="img/comedor-s.jpg" srcset="img/comedor-s.jpg 571w, img/comedor.jpg 1290w" sizes="(min-width:760px) 25vw, 50vw" alt="Comedor con una mesa grande de madera oscura y sillas tapizadas">
+            </button>
+            <figcaption><strong>Comedor</strong>Una mesa grande para sentar al grupo completo.</figcaption>
+          </figure>
+          <figure class="shot c3">
+            <button class="ph" type="button" style="--ar:3/4" data-full="img/cocina.jpg" data-cap="Cocina equipada">
+              <img loading="lazy" src="img/cocina-s.jpg" srcset="img/cocina-s.jpg 571w, img/cocina.jpg 1290w" sizes="(min-width:760px) 25vw, 50vw" alt="Cocina con cubierta de granito, estufa con horno, microondas y cafetera">
+            </button>
+            <figcaption><strong>Cocina equipada</strong>Estufa con horno, microondas, cafetera y licuadora.</figcaption>
+          </figure>
+          <figure class="shot c3">
+            <button class="ph" type="button" style="--ar:3/4" data-full="img/terraza.jpg" data-cap="Terraza techada con asador">
+              <img loading="lazy" src="img/terraza-s.jpg" srcset="img/terraza-s.jpg 571w, img/terraza.jpg 1290w" sizes="(min-width:760px) 25vw, 50vw" alt="Terraza techada de madera con mesa exterior, asador y vista al bosque">
+            </button>
+            <figcaption><strong>Terraza con asador</strong>Techada, con mesas y vista al bosque.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="group-head"><h3>Para dormir</h3><span class="mono">4 recámaras · 13 camas · 3 baños</span></div>
+        <div class="grid">
+          <figure class="shot c7">
+            <button class="ph" type="button" style="--ar:4/3" data-full="img/recamara.jpg" data-cap="Recámara principal con balcón">
+              <img loading="lazy" src="img/recamara-s.jpg" srcset="img/recamara-s.jpg 760w, img/recamara.jpg 1290w" sizes="(min-width:760px) 58vw, 100vw" alt="Recámara principal con techo de madera, televisión y puerta corrediza a un balcón">
+            </button>
+            <figcaption><strong>Recámara principal</strong>Con televisión y puerta corrediza a su propio balcón.</figcaption>
+          </figure>
+          <figure class="shot c5 fill">
+            <button class="ph" type="button" style="--ar:4/5" data-full="img/literas.jpg" data-cap="Cuarto de literas">
+              <img loading="lazy" src="img/literas-s.jpg" srcset="img/literas-s.jpg 571w, img/literas.jpg 1290w" sizes="(min-width:760px) 42vw, 100vw" alt="Cuarto con dos literas de madera y lámpara de astas">
+            </button>
+            <figcaption><strong>Cuarto de literas</strong>Dos literas, ideal para los niños o los amigos.</figcaption>
+          </figure>
+          <figure class="shot c8">
+            <button class="ph" type="button" style="--ar:16/9" data-full="img/tapanco.jpg" data-cap="Camas individuales bajo el techo inclinado">
+              <img loading="lazy" src="img/tapanco-s.jpg" srcset="img/tapanco-s.jpg 760w, img/tapanco.jpg 1800w" sizes="(min-width:760px) 66vw, 100vw" alt="Dos camas individuales con colchas a cuadros bajo un techo inclinado de madera">
+            </button>
+            <figcaption><strong>Camas individuales</strong>Bajo el techo inclinado de madera.</figcaption>
+          </figure>
+          <figure class="shot c4 m12 fill">
+            <button class="ph" type="button" style="--ar:4/5" data-full="img/bano.jpg" data-cap="Uno de los tres baños">
+              <img loading="lazy" src="img/bano-s.jpg" srcset="img/bano-s.jpg 571w, img/bano.jpg 1290w" sizes="(min-width:760px) 33vw, 100vw" alt="Baño con lavabo de granito y regadera con puerta de cristal">
+            </button>
+            <figcaption><strong>Baños</strong>Tres en total, con regadera.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="group-head"><h3>Afuera</h3><span class="mono">Jardín · Casa del árbol · Balcón</span></div>
+        <div class="grid">
+          <figure class="shot c7">
+            <button class="ph" type="button" style="--ar:4/3" data-full="img/entrada.jpg" data-cap="La entrada, con la sierra de fondo">
+              <img loading="lazy" src="img/entrada-s.jpg" srcset="img/entrada-s.jpg 760w, img/entrada.jpg 1720w" sizes="(min-width:760px) 58vw, 100vw" alt="Entrada de la cabaña con andador de piedra, jardín y montañas cubiertas de pinos al fondo">
+            </button>
+            <figcaption><strong>La entrada</strong>Andador de piedra, pasto y la sierra de fondo.</figcaption>
+          </figure>
+          <figure class="shot c5 fill">
+            <button class="ph" type="button" style="--ar:4/5" data-full="img/casa-arbol.jpg" data-cap="Casa del árbol">
+              <img loading="lazy" src="img/casa-arbol-s.jpg" srcset="img/casa-arbol-s.jpg 576w, img/casa-arbol.jpg 1290w" sizes="(min-width:760px) 42vw, 100vw" alt="Casa del árbol de madera construida alrededor de un pino, con plataforma y escalera">
+            </button>
+            <figcaption><strong>Casa del árbol</strong>Alrededor de un pino, con resbaladilla.</figcaption>
+          </figure>
+          <figure class="shot c4 m6">
+            <button class="ph" type="button" style="--ar:4/3" data-full="img/jardin.jpg" data-cap="El jardín">
+              <img loading="lazy" src="img/jardin-s.jpg" srcset="img/jardin-s.jpg 760w, img/jardin.jpg 1290w" sizes="(min-width:760px) 33vw, 50vw" alt="Jardín amplio de pasto con pinos y la cabaña al fondo">
+            </button>
+            <figcaption><strong>Jardín</strong>Pasto de sobra para correr y jugar.</figcaption>
+          </figure>
+          <figure class="shot c4 m6">
+            <button class="ph" type="button" style="--ar:4/3" data-full="img/balcon.jpg" data-cap="Balcón con vista a la sierra">
+              <img loading="lazy" src="img/balcon-s.jpg" srcset="img/balcon-s.jpg 760w, img/balcon.jpg 1720w" sizes="(min-width:760px) 33vw, 50vw" alt="Balcón de madera con mesa y dos sillas frente a montañas cubiertas de pinos">
+            </button>
+            <figcaption><strong>Balcón</strong>Mesa para dos frente a la montaña.</figcaption>
+          </figure>
+          <figure class="shot c4 m12">
+            <button class="ph" type="button" style="--ar:4/3" data-full="img/nevada.jpg" data-cap="La cabaña después de una nevada">
+              <img loading="lazy" src="img/nevada-s.jpg" srcset="img/nevada-s.jpg 760w, img/nevada.jpg 960w" sizes="(min-width:760px) 33vw, 100vw" alt="La cabaña con el techo cubierto de nieve">
+            </button>
+            <figcaption><strong>Techo nevado</strong>Así queda después de una nevada.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block band-soft" id="temporadas">
+    <div class="wrap">
+      <div class="seasons-head">
+        <div>
+          <p class="mono eyebrow">Temporadas</p>
+          <h2>El mismo jardín, tres climas</h2>
+        </div>
+        <p class="prose">La sierra cambia mucho según la fecha. Estas tres fotos se tomaron desde la cabaña en días distintos.</p>
+      </div>
+      <div class="seasons">
+        <figure class="shot season">
+          <button class="ph" type="button" data-full="img/nieve-sierra.jpg" data-cap="Con nieve: el jardín y la sierra en invierno">
+            <img loading="lazy" src="img/nieve-sierra-s.jpg" srcset="img/nieve-sierra-s.jpg 570w, img/nieve-sierra.jpg 1350w" sizes="(min-width:760px) 30vw, 44vw" alt="Jardín cubierto de nieve con pinos y la sierra nevada bajo el sol">
+          </button>
+          <figcaption><strong>Con nieve</strong>Hay inviernos en que el jardín amanece blanco.</figcaption>
+        </figure>
+        <figure class="shot season">
+          <button class="ph" type="button" data-full="img/hamaca.jpg" data-cap="Con lluvia: nubes bajando por la sierra">
+            <img loading="lazy" src="img/hamaca-s.jpg" srcset="img/hamaca-s.jpg 579w, img/hamaca.jpg 1290w" sizes="(min-width:760px) 30vw, 44vw" alt="Jardín muy verde con una hamaca entre los árboles y nubes bajas sobre la montaña">
+          </button>
+          <figcaption><strong>Con lluvia</strong>Las nubes bajan por la montaña y el pasto se pone así de verde.</figcaption>
+        </figure>
+        <figure class="shot season">
+          <button class="ph" type="button" data-full="img/porche.jpg" data-cap="Con sol: la terraza y la sierra en un día despejado">
+            <img loading="lazy" src="img/porche-s.jpg" srcset="img/porche-s.jpg 570w, img/porche.jpg 1350w" sizes="(min-width:760px) 30vw, 44vw" alt="Esquina de la terraza con columnas de piedra y la sierra bajo un cielo azul">
+          </button>
+          <figcaption><strong>Con sol</strong>Cielo despejado y la sierra completa desde la terraza.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="amenidades">
+    <div class="wrap amen">
+      <div>
+        <p class="mono eyebrow">Amenidades</p>
+        <h2>Lo que hay en la cabaña</h2>
+        <p class="note">La lista completa de amenidades y las reglas de la casa están en el <a href="https://www.airbnb.mx/rooms/1815620689149220325" target="_blank" rel="noopener">anuncio de Airbnb</a>.</p>
+      </div>
+      <ul class="amen-list">
+        <li>Wifi</li>
+        <li>Cocina equipada<small>Estufa con horno, microondas, cafetera y licuadora</small></li>
+        <li>Chimenea de piedra en la sala</li>
+        <li>Asador en la terraza</li>
+        <li>Televisión<small>En la sala y en la recámara principal</small></li>
+        <li>Área para trabajar</li>
+        <li>Estacionamiento gratuito<small>Dentro de la propiedad</small></li>
+        <li>Llegada autónoma<small>Con caja de seguridad para llaves</small></li>
+        <li>Terraza techada con comedor exterior</li>
+        <li>Jardín con hamaca</li>
+        <li>Casa del árbol con resbaladilla</li>
+        <li>Balcón con vista a la sierra</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="ubicacion" style="padding-top:0">
+    <div class="wrap loc">
+      <div>
+        <p class="mono eyebrow">Ubicación</p>
+        <h2>Bosques de Monterreal, Sierra de Arteaga</h2>
+        <div class="prose">
+          <p>La cabaña está dentro de Bosques de Monterreal, en Coahuila. En Google Maps aparece como «El Refugio»; también puedes copiar las coordenadas y pegarlas en tu navegador GPS.</p>
+        </div>
+        <div class="coords">
+          <code id="coords">25.2399223, -100.4300586</code>
+          <button class="copy" type="button" id="copy-coords" aria-live="polite">Copiar coordenadas</button>
+        </div>
+        <div class="cta">
+          <a class="btn" href="https://maps.app.goo.gl/sKYCc5gEKjRtvVJv8" target="_blank" rel="noopener">Abrir en Google Maps <span class="arr" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <aside class="arrive" aria-labelledby="arrive-h">
+        <h3 id="arrive-h">Al llegar</h3>
+        <dl>
+          <div><dt>Entras por tu cuenta</dt><dd>Las llaves están en una caja de seguridad; no hace falta coordinar la entrega.</dd></div>
+          <div><dt>Estacionamiento incluido</dt><dd>Gratuito y dentro de la propiedad.</dd></div>
+          <div><dt>Lleva suéter</dt><dd>El clima es fresco todo el año.</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block book" id="reservar">
+    <div class="wrap">
+      <div>
+        <p class="mono eyebrow">Reservaciones</p>
+        <h2>Aparta tus fechas</h2>
+        <p>Las reservas se hacen en Airbnb. Ahí ves el calendario disponible y el precio exacto para tus fechas.</p>
+        <div class="contact">
+          <span class="mono">¿Dudas? Llama o escribe por WhatsApp</span>
+          <a class="tel" href="tel:+528123216607" id="tel">81 2321 6607</a>
+          <a class="btn ghost sm" href="https://wa.me/528123216607?text=Hola%2C%20me%20interesa%20la%20caba%C3%B1a%20El%20Refugio." target="_blank" rel="noopener">WhatsApp <span class="arr" aria-hidden="true">↗</span></a>
+          <button class="copy" type="button" id="copy-tel" aria-live="polite">Copiar número</button>
+          <p class="fine">Aviso de privacidad simplificado: JGP Propiedades S.A. de C.V., con domicilio en Paseo Esperanza 913, Ampliación Valle del Mirador, C.P. 66260, San Pedro Garza García, Nuevo León, usa tu nombre, tu teléfono y los datos de tu estancia (fechas y número de huéspedes) para responder tu solicitud y dar seguimiento a tu reservación. Puedes limitar su uso o divulgación escribiendo a <a href="mailto:josegzzpnl@gmail.com">josegzzpnl@gmail.com</a>. Consulta el <a href="#privacidad">aviso de privacidad integral</a>.</p>
+        </div>
+      </div>
+      <div class="cta">
+        <a class="btn" href="https://www.airbnb.mx/rooms/1815620689149220325" target="_blank" rel="noopener">Reservar en Airbnb <span class="arr" aria-hidden="true">↗</span></a>
+        <a class="btn ghost" href="https://www.instagram.com/elrefugio.monterreal" target="_blank" rel="noopener">Instagram @elrefugio.monterreal</a>
+      </div>
+    </div>
+  </section>
+  <section class="legal" id="privacidad">
+    <div class="wrap">
+      <details id="aviso">
+        <summary><span class="legal-title">Aviso de privacidad integral</span><span class="mono">Última actualización: 10 de noviembre de 2026</span></summary>
+        <div class="legal-body">
+          <h3>1. Responsable y domicilio</h3>
+          <p><strong>JGP Propiedades S.A. de C.V.</strong>, que opera la cabaña El Refugio, con domicilio en Paseo Esperanza 913, Ampliación Valle del Mirador, C.P. 66260, San Pedro Garza García, Nuevo León, México, es responsable del tratamiento de tus datos personales, conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (la «Ley»).</p>
+
+          <h3>2. Datos personales que tratamos</h3>
+          <ul>
+            <li>Nombre.</li>
+            <li>Número telefónico.</li>
+            <li>Fechas de estancia y número de huéspedes.</li>
+          </ul>
+          <p>Los obtenemos directamente de ti cuando nos llamas o nos escribes por WhatsApp. No recabamos datos personales sensibles ni datos financieros o patrimoniales. Este sitio no tiene formularios y no usa cookies propias ni herramientas de analítica.</p>
+          <p>Las reservas y los pagos se hacen en Airbnb, que trata los datos que le proporcionas conforme a su propia política de privacidad. Los datos de tu reservación que Airbnb comparte con el anfitrión se usan solo para las finalidades de este aviso.</p>
+
+          <h3>3. Finalidades del tratamiento</h3>
+          <ul>
+            <li>Responder tus preguntas sobre la cabaña.</li>
+            <li>Informarte sobre la disponibilidad y dar seguimiento a tu reservación.</li>
+            <li>Coordinar tu llegada y tu estancia.</li>
+          </ul>
+          <p>Estas finalidades son necesarias para atender tu solicitud. Si después de conocer este aviso nos contactas y no manifiestas oposición, se entiende que consientes el tratamiento (consentimiento tácito, artículo 7 de la Ley). No tratamos tus datos para finalidades secundarias, como publicidad o prospección comercial.</p>
+
+          <h3>4. Transferencias</h3>
+          <p>No transferimos tus datos personales a terceros. Solo podríamos hacerlo sin tu consentimiento en los supuestos del artículo 36 de la Ley, por ejemplo, cuando la transferencia esté prevista en una ley.</p>
+
+          <h3>5. Opciones para limitar el uso o divulgación de tus datos</h3>
+          <p>Puedes pedirnos en cualquier momento que dejemos de contactarte o que limitemos el uso de tus datos, escribiendo a <a href="mailto:josegzzpnl@gmail.com">josegzzpnl@gmail.com</a> o por WhatsApp al 81 2321 6607.</p>
+
+          <h3>6. Derechos ARCO y revocación del consentimiento</h3>
+          <p>Tienes derecho a acceder a tus datos, rectificarlos, cancelarlos u oponerte a su tratamiento (derechos ARCO, artículos 22 a 26 de la Ley), y a revocar tu consentimiento en cualquier momento (artículo 7). Para ejercerlos, tú o tu representante legal pueden enviar una solicitud a <a href="mailto:josegzzpnl@gmail.com">josegzzpnl@gmail.com</a> o por WhatsApp al 81 2321 6607. Conforme al artículo 28 de la Ley, la solicitud debe incluir:</p>
+          <ul>
+            <li>Tu nombre y un domicilio u otro medio para comunicarte la respuesta.</li>
+            <li>Los documentos que acrediten tu identidad o, en su caso, la representación legal.</li>
+            <li>La descripción clara y precisa de los datos sobre los que quieres ejercer el derecho (no es necesaria para el acceso).</li>
+            <li>El derecho que quieres ejercer o lo que solicitas.</li>
+            <li>Cualquier otro elemento que facilite localizar tus datos.</li>
+          </ul>
+          <p>Te responderemos en un plazo máximo de veinte días hábiles a partir de que recibamos tu solicitud. Si procede, la haremos efectiva dentro de los quince días hábiles siguientes a nuestra respuesta. Estos plazos pueden ampliarse una sola vez por un periodo igual cuando el caso lo justifique (artículo 31). El ejercicio de estos derechos es gratuito; solo podrían cobrarse gastos de envío o de reproducción (artículo 34).</p>
+          <p>Si no estás de acuerdo con nuestra respuesta, puedes presentar una solicitud de protección de datos ante la Secretaría Anticorrupción y Buen Gobierno dentro de los quince días hábiles siguientes a que te la comuniquemos. Si no respondemos, puedes presentarla una vez vencido el plazo de respuesta (artículo 40).</p>
+
+          <h3>7. Cambios a este aviso</h3>
+          <p>Cualquier cambio a este aviso de privacidad se publicará en esta misma página, con la fecha de su última actualización.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>El Refugio · Bosques de Monterreal, Coahuila, México · Tel. 81 2321 6607</span>
+    <nav aria-label="Enlaces">
+      <a href="https://www.airbnb.mx/rooms/1815620689149220325" target="_blank" rel="noopener">Airbnb</a>
+      <a href="https://www.instagram.com/elrefugio.monterreal" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://maps.app.goo.gl/sKYCc5gEKjRtvVJv8" target="_blank" rel="noopener">Google Maps</a>
+      <a href="https://wa.me/528123216607?text=Hola%2C%20me%20interesa%20la%20caba%C3%B1a%20El%20Refugio." target="_blank" rel="noopener">WhatsApp</a>
+      <a href="#privacidad">Aviso de privacidad</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Fotos de El Refugio" hidden>
+  <div class="lb-top">
+    <span class="mono" id="lb-count"></span>
+    <button class="lb-btn" type="button" id="lb-close">Cerrar</button>
+  </div>
+  <button class="lb-btn lb-nav" type="button" id="lb-prev" aria-label="Foto anterior">←</button>
+  <div class="lb-stage"><img id="lb-img" alt=""></div>
+  <button class="lb-btn lb-nav" type="button" id="lb-next" aria-label="Foto siguiente">→</button>
+  <p class="lb-cap" id="lb-cap"></p>
+</div>
+
+<script>
+(function(){
+  document.documentElement.lang = 'es';
+
+  // Privacy notice: any link to #privacidad opens the collapsed notice.
+  var aviso = document.getElementById('aviso');
+  function openAviso(){ if (location.hash === '#privacidad') aviso.open = true; }
+  Array.prototype.forEach.call(document.querySelectorAll('a[href="#privacidad"]'), function(a){
+    a.addEventListener('click', function(){ aviso.open = true; });
+  });
+  window.addEventListener('hashchange', openAviso);
+  openAviso();
+
+  // Copy the contact number, with a select-the-text fallback where the clipboard is refused.
+  var telBtn = document.getElementById('copy-tel'), tel = document.getElementById('tel');
+  telBtn.addEventListener('click', function(){
+    function pick(){
+      var r = document.createRange(); r.selectNodeContents(tel);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      telBtn.textContent = 'Seleccionado: copia con tu teclado';
+    }
+    function ok(){ telBtn.textContent = 'Copiado'; setTimeout(function(){ telBtn.textContent = 'Copiar número'; }, 2200); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText('8123216607').then(ok, pick);
+    } else { pick(); }
+  });
+
+  // Photo viewer: every photo on the page opens here, in page order.
+  var shots = Array.prototype.slice.call(document.querySelectorAll('[data-full]'));
+  var lb = document.getElementById('lb'), img = document.getElementById('lb-img');
+  var cap = document.getElementById('lb-cap'), count = document.getElementById('lb-count');
+  var current = 0, opener = null;
+
+  function show(i){
+    current = (i + shots.length) % shots.length;
+    var s = shots[current];
+    img.src = s.getAttribute('data-full');
+    img.alt = s.getAttribute('data-cap');
+    cap.textContent = s.getAttribute('data-cap');
+    count.textContent = 'Foto ' + (current + 1) + ' de ' + shots.length;
+  }
+  function open(i, from){
+    opener = from; show(i);
+    lb.hidden = false;
+    document.documentElement.style.overflow = 'hidden';
+    document.getElementById('lb-close').focus();
+  }
+  function close(){
+    lb.hidden = true;
+    document.documentElement.style.overflow = '';
+    img.removeAttribute('src');
+    if (opener) opener.focus();
+  }
+  shots.forEach(function(s, i){ s.addEventListener('click', function(){ open(i, s); }); });
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-prev').addEventListener('click', function(){ show(current - 1); });
+  document.getElementById('lb-next').addEventListener('click', function(){ show(current + 1); });
+  lb.addEventListener('click', function(e){ if (e.target === lb || e.target.className === 'lb-stage' || e.target === img) close(); });
+  document.addEventListener('keydown', function(e){
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') show(current - 1);
+    else if (e.key === 'ArrowRight') show(current + 1);
+    else if (e.key === 'Tab') {
+      var f = lb.querySelectorAll('button'), first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  var x0 = null;
+  lb.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', function(e){
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+  }, {passive:true});
+
+  // Copy coordinates, with a select-the-text fallback where the clipboard is refused.
+  var copyBtn = document.getElementById('copy-coords'), coords = document.getElementById('coords');
+  copyBtn.addEventListener('click', function(){
+    function selectText(){
+      var r = document.createRange(); r.selectNodeContents(coords);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      copyBtn.textContent = 'Seleccionadas: copia con tu teclado';
+    }
+    function done(){ copyBtn.textContent = 'Copiadas'; setTimeout(function(){ copyBtn.textContent = 'Copiar coordenadas'; }, 2200); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(coords.textContent).then(done, selectText);
+    } else { selectText(); }
+  });
+})();
+</script>
+</body>
+</html>
